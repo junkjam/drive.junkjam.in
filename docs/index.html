@@ -1,0 +1,24 @@
+<!--reCaptcha enabled single webpage to redirect Google public docs link-->
+
+<html>
+  <head>
+    <title>JunkJam Docs</title>
+    <link rel="shortcut icon" href="//www.gstatic.com/recaptcha/admin/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+      var verifyCallback = function(response) {
+        window.open("https://docs.google.com/document/d/1q2sICa6BjQZlV6Xz5lPEdzU04NNFix43G_6INIL_uWQ/edit","_self")
+      };
+      var onloadCallback = function() {
+        grecaptcha.render('recaptcha', {
+          'sitekey' : '6LfQP64UAAAAADzaMnKbDF3DA4DUkR5UY02xaKv-',
+          'callback' : verifyCallback,
+        });
+      };
+    </script>    
+  </head>
+  <body>
+    <div id="recaptcha" align="center" style="position:relative; margin:30px;"></div>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+  </body>
+</html>
