@@ -1,0 +1,24 @@
+<!--reCaptcha enabled single webpage to redirect Google public drive link-->
+
+<html>
+  <head>
+    <title>reCAPTCHA ::</title>
+    <link rel="shortcut icon" href="//www.gstatic.com/recaptcha/admin/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript">
+      var verifyCallback = function(response) {
+        window.open("https://drive.google.com/drive/folders/0B4G5cwp9oaUcSmp1OXBVamQ1czA?usp=sharing","_self")
+      };
+      var onloadCallback = function() {
+        grecaptcha.render('recaptcha', {
+          'sitekey' : '6LdGpCcUAAAAAGd6iJ-1X-p7YtOajXfxKA3WxXAX',
+          'callback' : verifyCallback,
+        });
+      };
+    </script>    
+  </head>
+  <body>
+    <div id="recaptcha" align="center" style="position:relative; margin:30px;"></div>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+  </body>
+</html>
