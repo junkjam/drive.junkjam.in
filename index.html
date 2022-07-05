@@ -1,24 +1,9 @@
-<!--reCaptcha enabled single webpage to redirect Google public drive link-->
-
-<html>
-  <head>
-    <title>JunkJam Drive</title>
-    <link rel="shortcut icon" href=//blog.junkjam.in/favicon.png>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript">
-      var verifyCallback = function(response) {
-        window.open("https://drive.google.com/drive/folders/13dDtHsTi5bZ5z0uCAJ3I3i4LQAsd3YRK?usp=sharing","_self")
-      };
-      var onloadCallback = function() {
-        grecaptcha.render('recaptcha', {
-          'sitekey' : '6LfQP64UAAAAADzaMnKbDF3DA4DUkR5UY02xaKv-',
-          'callback' : verifyCallback,
-        });
-      };
-    </script>    
-  </head>
-  <body>
-    <div id="recaptcha" align="center" style="position:relative; margin:30px;"></div>
-    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-  </body>
-</html>
+<script>
+  const route = {
+    docs: "https://docs.google.com/document/d/1wtT5bekIkMZ_3avzdeRn0pTevVjqYVGtSUb_sWwMbBU/edit",
+    default: "https://drive.google.com/drive/folders/13dDtHsTi5bZ5z0uCAJ3I3i4LQAsd3YRK?usp=sharing"
+  };
+  const pathname = window.location.pathname.slice(1);
+  const path = pathname.endsWith('/') ? pathname.slice(0, pathname.length-1) : pathname;
+  window.location.href = route[path] || route.default;
+</script>
