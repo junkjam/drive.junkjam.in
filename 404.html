@@ -1,0 +1,9 @@
+<script>
+  const route = {
+    docs: "https://docs.google.com/document/d/1wtT5bekIkMZ_3avzdeRn0pTevVjqYVGtSUb_sWwMbBU/edit",
+    default: "https://drive.google.com/drive/folders/13dDtHsTi5bZ5z0uCAJ3I3i4LQAsd3YRK?usp=sharing"
+  };
+  const pathname = window.location.pathname.slice(1);
+  const path = pathname.endsWith('/') ? pathname.slice(0, pathname.length-1) : pathname;
+  window.location.href = route[path] || route.default;
+</script>
